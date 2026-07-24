@@ -25,7 +25,7 @@ export function Topbar() {
   };
 
   return (
-    <header className="h-16 bg-gray-50 border-b border-gray-200 flex items-center justify-between px-6 shrink-0 z-10 shadow-sm">
+    <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 shrink-0 z-10 shadow-sm">
       <div className="flex items-center">
         <h1 className="text-lg font-semibold text-slate-800">{getPageTitle()}</h1>
       </div>
@@ -39,7 +39,7 @@ export function Topbar() {
             id="global-product"
             value={state.activeProduct.kode}
             onChange={handleProductChange}
-            className="text-sm border border-slate-300 rounded-md py-1.5 pl-3 pr-8 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 bg-slate-50 cursor-pointer"
+            className="text-sm border border-slate-300 rounded-md py-1.5 pl-3 pr-8 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-slate-800 cursor-pointer"
           >
             {PRODUCTS.map(p => (
               <option key={p.kode} value={p.kode}>{p.kode} - {p.nama}</option>

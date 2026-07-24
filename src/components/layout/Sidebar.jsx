@@ -7,24 +7,24 @@ export function Sidebar() {
 
   const navItems = [
     { to: '/', label: 'Dashboard', icon: LayoutDashboard },
-    { to: '/bom', label: 'BOM Rev', icon: Network },
-    { to: '/mrp', label: 'MRP Revisi', icon: CalendarDays },
+    { to: '/bom', label: 'BOM', icon: Network },
+    { to: '/mrp', label: 'MRP', icon: CalendarDays },
     { to: '/rekap', label: 'Rekap', icon: ReceiptText },
   ];
 
   return (
     <aside 
-      className={`bg-brand text-neutral flex flex-col transition-all duration-300 shadow-xl z-20 ${collapsed ? 'w-20' : 'w-64'}`}
+      className={`bg-white border-r border-slate-200 flex flex-col transition-all duration-300 z-20 ${collapsed ? 'w-20' : 'w-64'}`}
     >
-      <div className="h-20 flex items-center justify-between px-6 border-b border-neutral/10">
+      <div className="h-20 flex items-center justify-between px-6 border-b border-slate-100">
         {!collapsed && (
-          <div className="flex items-center justify-center flex-1 overflow-hidden pr-2">
-            <img src="/logo_chocodot.png" alt="Chocodot Logo" className="h-14 w-auto object-contain drop-shadow-sm" />
+          <div className="flex items-center flex-1 overflow-hidden pr-2">
+            <h1 className="text-xl font-bold text-slate-800 tracking-tight">MRP Dashboard</h1>
           </div>
         )}
         <button 
           onClick={() => setCollapsed(!collapsed)}
-          className="p-1.5 hover:bg-neutral/10 rounded-lg text-neutral/70 hover:text-neutral transition-colors"
+          className="p-1.5 hover:bg-slate-100 rounded-lg text-slate-400 hover:text-slate-600 transition-colors"
         >
           {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
@@ -38,21 +38,21 @@ export function Sidebar() {
               key={item.to}
               to={item.to}
               className={({ isActive }) => `
-                flex items-center px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-sm
+                flex items-center px-4 py-3 rounded-xl transition-all duration-200 text-sm
                 ${isActive 
-                  ? 'bg-neutral text-white shadow-md transform scale-100' 
-                  : 'text-neutral/80 hover:bg-white/40 hover:text-neutral hover:scale-[1.02]'}
+                  ? 'bg-indigo-50 text-indigo-600 font-semibold' 
+                  : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900 font-medium'}
               `}
               title={collapsed ? item.label : undefined}
             >
               <Icon size={22} className={collapsed ? "mx-auto" : "mr-4"} />
-              {!collapsed && <span className="font-medium">{item.label}</span>}
+              {!collapsed && <span>{item.label}</span>}
             </NavLink>
           );
         })}
       </nav>
       
-      <div className="p-5 border-t border-neutral/10 text-xs font-semibold text-neutral/60 truncate tracking-wide text-center">
+      <div className="p-5 border-t border-slate-100 text-xs font-semibold text-slate-400 truncate tracking-wide text-center">
         {!collapsed ? <span>MUHAMMAD RIZQI SUBAGJA</span> : <span>MRS</span>}
       </div>
     </aside>

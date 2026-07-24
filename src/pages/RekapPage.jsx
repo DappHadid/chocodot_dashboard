@@ -51,7 +51,7 @@ export function RekapPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h2 className="text-lg font-semibold text-gray-800">Rekapitulasi Order Release</h2>
           <p className="text-sm text-gray-500">Agregasi kebutuhan material untuk: <span className="font-medium text-sky-600">{state.activeProduct.nama}</span></p>
@@ -61,20 +61,20 @@ export function RekapPage() {
       {processedData.length > 0 ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm border-l-4 border-l-indigo-500">
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm border-l-4 border-l-indigo-500">
               <h3 className="text-sm font-medium text-gray-500 mb-1">Item yang Dibuat ({stats.itemsDibuat} komponen)</h3>
               <p className="text-3xl font-bold text-gray-900">{new Intl.NumberFormat('id-ID').format(stats.totalDibuat)}</p>
               <p className="text-xs text-gray-400 mt-2">Total order release tahunan</p>
             </div>
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm border-l-4 border-l-amber-500">
+            <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm border-l-4 border-l-amber-500">
               <h3 className="text-sm font-medium text-gray-500 mb-1">Item yang Dibeli ({stats.itemsDibeli} komponen)</h3>
               <p className="text-3xl font-bold text-gray-900">{new Intl.NumberFormat('id-ID').format(stats.totalDibeli)}</p>
               <p className="text-xs text-gray-400 mt-2">Total order release tahunan</p>
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+          <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-white">
                <h3 className="font-semibold text-gray-700">Rincian Per Komponen</h3>
              </div>
              <RekapTable items={processedData} />

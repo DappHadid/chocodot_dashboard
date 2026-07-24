@@ -6,7 +6,7 @@ export function GrossRequirementChart({ data }) {
   // data expected format: [{ name: 'Produk A', value: 12000, fill: '#color' }, ...]
   
   return (
-    <div className="h-[420px] w-full bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col">
+    <div className="h-[420px] w-full bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col">
       <h3 className="text-sm font-semibold text-gray-700 mb-4">Total Gross Requirement per Produk (Tahunan)</h3>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart

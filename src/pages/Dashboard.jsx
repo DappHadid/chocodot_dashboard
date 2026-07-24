@@ -14,6 +14,7 @@ import { useMrpData } from '../hooks/useMrpData';
 import { useDashboard } from '../contexts/DashboardContext';
 import { PRODUCTS } from '../constants/products';
 import { MONTHS } from '../constants/weeks';
+import { Package, CalendarCheck, Wrench, ShoppingCart } from 'lucide-react';
 
 export function Dashboard() {
   const { state } = useDashboard();
@@ -125,25 +126,29 @@ export function Dashboard() {
           title="Total Produk" 
           value={PRODUCTS.length} 
           subtitle="Varian Finished Goods" 
-          accent="var(--color-brand)" 
+          accent="var(--color-brand)"
+          icon={Package}
         />
         <StatCard 
           title="Total Planned Orders" 
           value={stats.totalPlanned} 
           subtitle="Sepanjang Tahun (Global)" 
-          accent="var(--color-neutral)" 
+          accent="var(--color-neutral)"
+          icon={CalendarCheck}
         />
         <StatCard 
           title="Total Item Dibuat" 
           value={stats.totalDibuat} 
           subtitle="Produksi Internal (Global)" 
-          accent="var(--color-indigo-500)" 
+          accent="var(--color-indigo-500)"
+          icon={Wrench}
         />
         <StatCard 
           title="Total Item Dibeli" 
           value={stats.totalDibeli} 
           subtitle="Pembelian Eksternal (Global)" 
-          accent="var(--color-amber-500)" 
+          accent="var(--color-amber-500)"
+          icon={ShoppingCart}
         />
       </div>
 
@@ -153,11 +158,11 @@ export function Dashboard() {
           <GrossRequirementChart data={grossChartData} />
         </div>
         <div className="lg:col-span-2">
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm h-[420px] overflow-auto custom-scrollbar flex flex-col">
-            <h3 className="text-sm font-semibold text-gray-700 mb-4 sticky top-0 bg-gray-50 z-10 pb-2 border-b border-gray-100">Status Inventori ({state.activeProduct.nama})</h3>
+          <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm h-[420px] overflow-auto custom-scrollbar flex flex-col">
+            <h3 className="text-sm font-semibold text-gray-700 mb-4 sticky top-0 bg-white z-10 pb-2 border-b border-gray-100">Status Inventori ({state.activeProduct.nama})</h3>
             <div className="flex-1 min-h-0">
               <table className="w-full text-sm text-left">
-                <thead className="text-xs text-gray-500 uppercase bg-gray-50 sticky top-0 z-10">
+                <thead className="text-xs text-gray-500 uppercase bg-white sticky top-0 z-10">
                   <tr>
                     <th className="px-3 py-3 rounded-tl-md font-semibold">Kode</th>
                     <th className="px-3 py-3 font-semibold">Bahan Baku</th>
@@ -175,7 +180,7 @@ export function Dashboard() {
                     else if (ratio < 0.5) { status = 'Perlu Order'; variant = 'warning'; }
 
                     return (
-                      <tr key={item.id || item.kode} className="odd:bg-gray-50 even:bg-gray-100/50 hover:bg-gray-100 transition-colors">
+                      <tr key={item.id || item.kode} className="bg-white hover:bg-slate-50 transition-colors">
                         <td className="px-3 py-3 font-mono text-gray-600">{item.kode}</td>
                         <td className="px-3 py-3 truncate max-w-[150px] text-gray-700" title={item.bahan_baku}>{item.bahan_baku}</td>
                         <td className="px-3 py-3 text-right font-mono text-gray-900">{item.on_hand}</td>

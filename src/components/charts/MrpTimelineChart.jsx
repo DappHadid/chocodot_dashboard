@@ -32,7 +32,7 @@ export function MrpTimelineChart({ data, productName }) {
   }, [data]);
 
   return (
-    <div className="h-96 w-full bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm mt-6">
+    <div className="h-96 w-full bg-white p-6 rounded-xl border border-gray-100 shadow-sm mt-6">
       <div className="mb-4">
         <h3 className="text-sm font-semibold text-gray-700">Gross Requirement vs Planned Order</h3>
         <p className="text-xs text-gray-500">Produk: <span className="font-medium text-brand-dark">{productName || 'Tidak diketahui'}</span></p>

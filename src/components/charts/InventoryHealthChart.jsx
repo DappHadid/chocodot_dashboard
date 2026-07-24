@@ -22,7 +22,7 @@ export function InventoryHealthChart({ data }) {
   }, [data]);
 
   return (
-    <div className="h-80 w-full bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col">
+    <div className="h-80 w-full bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col">
       <h3 className="text-sm font-semibold text-gray-700 mb-2">Status Inventori (BOM Aktif)</h3>
       <div className="flex-1 min-h-0">
         {chartData.length > 0 ? (
