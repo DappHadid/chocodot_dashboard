@@ -10,12 +10,29 @@ export function RekapPage() {
   const { state } = useDashboard();
   const { data, loading, error, refetch } = useRekapData(false); // only for active product for this view, or we can fetch all
 
+  const processedData = useMemo(() => {
+    return data.map(item => {
+      let sum = 0;
+      for (let i = 1; i <= 48; i++) {
+        sum += Number(item[`w${String(i).padStart(2, '0')}`] || 0);
+      }
+      let category = item.category || 'dibuat';
+      const name = (item.bahan_baku || '').toLowerCase();
+      if (name.includes('foil') || name.includes('kemasan') || name.includes('compound') || name.includes('dodol')) {
+        category = 'dibeli';
+      } else {
+        category = 'dibuat';
+      }
+      return { ...item, total: sum > 0 ? sum : item.total, category };
+    });
+  }, [data]);
+
   const stats = useMemo(() => {
-    if (!data.length) return { totalDibuat: 0, totalDibeli: 0, itemsDibuat: 0, itemsDibeli: 0 };
+    if (!processedData.length) return { totalDibuat: 0, totalDibeli: 0, itemsDibuat: 0, itemsDibeli: 0 };
     let totalDibuat = 0, totalDibeli = 0;
     let itemsDibuat = 0, itemsDibeli = 0;
     
-    data.forEach(item => {
+    processedData.forEach(item => {
       const isDibuat = item.category?.toLowerCase() === 'dibuat';
       if (isDibuat) {
         totalDibuat += Number(item.total || 0);
@@ -27,40 +44,40 @@ export function RekapPage() {
     });
     
     return { totalDibuat, totalDibeli, itemsDibuat, itemsDibeli };
-  }, [data]);
+  }, [processedData]);
 
   if (loading) return <LoadingSpinner />;
   if (error) return <ErrorState error={error} onRetry={refetch} />;
 
   return (
     <div className="space-y-6">
-      <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-lg font-semibold text-slate-800">Rekapitulasi Order Release</h2>
-          <p className="text-sm text-slate-500">Agregasi kebutuhan material untuk: <span className="font-medium text-sky-600">{state.activeProduct.nama}</span></p>
+          <h2 className="text-lg font-semibold text-gray-800">Rekapitulasi Order Release</h2>
+          <p className="text-sm text-gray-500">Agregasi kebutuhan material untuk: <span className="font-medium text-sky-600">{state.activeProduct.nama}</span></p>
         </div>
       </div>
 
-      {data.length > 0 ? (
+      {processedData.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-indigo-500">
-              <h3 className="text-sm font-medium text-slate-500 mb-1">Item yang Dibuat ({stats.itemsDibuat} komponen)</h3>
-              <p className="text-3xl font-mono font-bold text-slate-800">{new Intl.NumberFormat('id-ID').format(stats.totalDibuat)}</p>
-              <p className="text-xs text-slate-400 mt-2">Total order release tahunan</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm border-l-4 border-l-indigo-500">
+              <h3 className="text-sm font-medium text-gray-500 mb-1">Item yang Dibuat ({stats.itemsDibuat} komponen)</h3>
+              <p className="text-3xl font-bold text-gray-900">{new Intl.NumberFormat('id-ID').format(stats.totalDibuat)}</p>
+              <p className="text-xs text-gray-400 mt-2">Total order release tahunan</p>
             </div>
-            <div className="bg-white p-5 rounded-lg border border-slate-200 shadow-sm border-l-4 border-l-amber-500">
-              <h3 className="text-sm font-medium text-slate-500 mb-1">Item yang Dibeli ({stats.itemsDibeli} komponen)</h3>
-              <p className="text-3xl font-mono font-bold text-slate-800">{new Intl.NumberFormat('id-ID').format(stats.totalDibeli)}</p>
-              <p className="text-xs text-slate-400 mt-2">Total order release tahunan</p>
+            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm border-l-4 border-l-amber-500">
+              <h3 className="text-sm font-medium text-gray-500 mb-1">Item yang Dibeli ({stats.itemsDibeli} komponen)</h3>
+              <p className="text-3xl font-bold text-gray-900">{new Intl.NumberFormat('id-ID').format(stats.totalDibeli)}</p>
+              <p className="text-xs text-gray-400 mt-2">Total order release tahunan</p>
             </div>
           </div>
 
-          <div className="bg-white p-1 rounded-lg border border-slate-200 shadow-sm">
-             <div className="px-4 py-3 border-b border-slate-100 flex justify-between items-center bg-slate-50 rounded-t-lg">
-               <h3 className="font-semibold text-slate-700">Rincian Per Komponen</h3>
+          <div className="bg-gray-50 rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+             <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+               <h3 className="font-semibold text-gray-700">Rincian Per Komponen</h3>
              </div>
-             <RekapTable items={data} />
+             <RekapTable items={processedData} />
           </div>
         </>
       ) : (
