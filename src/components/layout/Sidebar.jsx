@@ -14,19 +14,23 @@ export function Sidebar() {
 
   return (
     <aside 
-      className={`bg-slate-900 text-slate-300 flex flex-col transition-all duration-300 ${collapsed ? 'w-16' : 'w-60'}`}
+      className={`bg-brand text-neutral flex flex-col transition-all duration-300 shadow-xl z-20 ${collapsed ? 'w-20' : 'w-64'}`}
     >
-      <div className="h-14 flex items-center justify-between px-4 border-b border-slate-800">
-        {!collapsed && <span className="font-bold text-white whitespace-nowrap overflow-hidden">Chocodot MRP</span>}
+      <div className="h-20 flex items-center justify-between px-6 border-b border-neutral/10">
+        {!collapsed && (
+          <div className="flex items-center justify-center flex-1 overflow-hidden pr-2">
+            <img src="/logo_chocodot.png" alt="Chocodot Logo" className="h-14 w-auto object-contain drop-shadow-sm" />
+          </div>
+        )}
         <button 
           onClick={() => setCollapsed(!collapsed)}
-          className="p-1 hover:bg-slate-800 rounded text-slate-400 hover:text-white"
+          className="p-1.5 hover:bg-neutral/10 rounded-lg text-neutral/70 hover:text-neutral transition-colors"
         >
-          {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+          {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
       </div>
       
-      <nav className="flex-1 py-4 flex flex-col gap-1 px-2 overflow-y-auto">
+      <nav className="flex-1 py-6 flex flex-col gap-2 px-4 overflow-y-auto custom-scrollbar">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
@@ -34,22 +38,22 @@ export function Sidebar() {
               key={item.to}
               to={item.to}
               className={({ isActive }) => `
-                flex items-center px-3 py-2 rounded-md transition-colors
+                flex items-center px-4 py-3 rounded-xl transition-all duration-200 font-semibold text-sm
                 ${isActive 
-                  ? 'bg-slate-800 text-sky-400 border-l-4 border-sky-400 -ml-2 pl-[10px]' 
-                  : 'hover:bg-slate-800/50 hover:text-white border-l-4 border-transparent'}
+                  ? 'bg-neutral text-white shadow-md transform scale-100' 
+                  : 'text-neutral/80 hover:bg-white/40 hover:text-neutral hover:scale-[1.02]'}
               `}
               title={collapsed ? item.label : undefined}
             >
-              <Icon size={20} className={collapsed ? "mx-auto" : "mr-3"} />
+              <Icon size={22} className={collapsed ? "mx-auto" : "mr-4"} />
               {!collapsed && <span className="font-medium">{item.label}</span>}
             </NavLink>
           );
         })}
       </nav>
       
-      <div className="p-4 border-t border-slate-800 text-xs text-slate-600 truncate">
-        {!collapsed && <span>MRP System v1.0</span>}
+      <div className="p-5 border-t border-neutral/10 text-xs font-semibold text-neutral/60 truncate tracking-wide text-center">
+        {!collapsed ? <span>MUHAMMAD RIZQI SUBAGJA</span> : <span>MRS</span>}
       </div>
     </aside>
   );

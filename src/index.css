@@ -1,29 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0f172a;
-  --color-ink-muted: #334155;
-  --color-ink-subtle: #64748b;
-  --color-surface: #f8fafc;
+  /* Primary: #F9D209 */
+  --color-brand: #F9D209;
+  --color-brand-dark: #d4b307;
+  --color-brand-light: #fff9db;
+
+  /* Secondary: #663300 */
+  --color-neutral: #663300;
+  --color-neutral-light: #f0e6dd;
+
+  /* Accent: #B90827 */
+  --color-danger: #B90827;
+  --color-danger-light: #fbe6ea;
+
+  /* Overriding Tailwind defaults used in components to match new scheme */
+  --color-sky-50: #fff9db;
+  --color-sky-100: #ffefb0;
+  --color-sky-200: #ffe480;
+  --color-sky-400: #fcd933;
+  --color-sky-500: #F9D209;
+  --color-sky-600: #d4b307;
+  --color-sky-700: #a38905;
+  --color-sky-900: #4d4002;
+
+  --color-indigo-50: #f5ede6;
+  --color-indigo-100: #e6d3c3;
+  --color-indigo-500: #663300;
+  --color-indigo-600: #522900;
+  --color-indigo-700: #3d1f00;
+
+  --color-rose-50: #fbe6ea;
+  --color-rose-100: #f6c0cb;
+  --color-rose-500: #B90827;
+  --color-rose-600: #94061f;
+  --color-rose-800: #5d0414;
+
+  /* Warmer grays (ink/surface) to match chocolate theme */
+  --color-ink: #2b1d12;
+  --color-ink-muted: #4a382b;
+  --color-ink-subtle: #7a6657;
+  --color-surface: #faf7f5;
   --color-surface-raised: #ffffff;
-  --color-surface-sunken: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-border-strong: #cbd5e1;
+  --color-surface-sunken: #f0ebe6;
+  --color-border: #e6dfd9;
+  --color-border-strong: #d1c7be;
+  
+  --color-slate-50: #faf7f5;
+  --color-slate-100: #f0ebe6;
+  --color-slate-200: #e6dfd9;
+  --color-slate-300: #d1c7be;
+  --color-slate-400: #a3958a;
+  --color-slate-500: #7a6657;
+  --color-slate-600: #5c4b40;
+  --color-slate-700: #4a382b;
+  --color-slate-800: #2b1d12;
+  --color-slate-900: #1a100a;
 
-  --color-brand: #0ea5e9;
-  --color-brand-dark: #0284c7;
-  --color-brand-light: #e0f2fe;
-
-  --color-positive: #10b981;
-  --color-positive-light: #d1fae5;
-  --color-warning: #f59e0b;
-  --color-warning-light: #fef3c7;
-  --color-danger: #ef4444;
-  --color-danger-light: #fee2e2;
-  --color-neutral: #6366f1;
-  --color-neutral-light: #ede9fe;
-
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 

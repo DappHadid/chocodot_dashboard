@@ -7,7 +7,7 @@ import { DashboardProvider } from '../../contexts/DashboardContext';
 export function Layout() {
   return (
     <DashboardProvider>
-      <div className="flex h-screen w-full bg-slate-50 overflow-hidden font-sans text-slate-900">
+      <div className="flex h-screen w-full bg-gray-50 overflow-hidden font-sans text-slate-900">
         <Sidebar />
         <div className="flex-1 flex flex-col h-screen min-w-0">
           <Topbar />

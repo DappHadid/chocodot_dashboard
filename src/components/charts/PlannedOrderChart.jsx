@@ -6,9 +6,10 @@ export function PlannedOrderChart({ data }) {
   // data expected format: [{ month: 'Jan', CDTI: 400, CWTI: 200, ... }, ...]
 
   return (
-    <div className="h-96 w-full bg-white p-4 rounded-lg border border-slate-200 shadow-sm mt-6">
-      <h3 className="text-sm font-semibold text-slate-700 mb-4">Planned Order Release Timeline</h3>
-      <ResponsiveContainer width="100%" height="100%">
+    <div className="h-[500px] w-full bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm mt-6 flex flex-col">
+      <h3 className="text-sm font-semibold text-gray-700 mb-4">Planned Order Release Timeline</h3>
+      <div className="flex-1 min-h-0">
+        <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -35,6 +36,7 @@ export function PlannedOrderChart({ data }) {
           ))}
         </LineChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 }
