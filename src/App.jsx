@@ -5,6 +5,7 @@ import { Dashboard } from './pages/Dashboard';
 import { BomPage } from './pages/BomPage';
 import { MrpPage } from './pages/MrpPage';
 import { RekapPage } from './pages/RekapPage';
+import { DemandPage } from './pages/DemandPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="demand" element={<DemandPage />} />
           <Route path="bom" element={<BomPage />} />
           <Route path="mrp" element={<MrpPage />} />
           <Route path="rekap" element={<RekapPage />} />

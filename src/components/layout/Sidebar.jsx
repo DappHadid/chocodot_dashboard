@@ -7,6 +7,7 @@ export function Sidebar() {
 
   const navItems = [
     { to: '/', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/demand', label: 'Data Permintaan', icon: CalendarDays },
     { to: '/bom', label: 'BOM', icon: Network },
     { to: '/mrp', label: 'MRP', icon: CalendarDays },
     { to: '/rekap', label: 'Rekap', icon: ReceiptText },
