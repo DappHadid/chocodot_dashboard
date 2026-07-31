@@ -30,7 +30,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Kosongan Dark', 
         3, 
-        0, 
+        1, 
         'A-2', 
         'Assembly 2', 
         1, 
@@ -54,7 +54,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Kosongan Dark', 
         5, 
-        0, 
+        2, 
         'A-1', 
         'Assembly 1', 
         1, 
@@ -102,7 +102,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Kosongan White', 
         3, 
-        0, 
+        1, 
         'A-2', 
         'Assembly 2', 
         1, 
@@ -126,7 +126,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Kosongan White', 
         5, 
-        0, 
+        2, 
         'A-1', 
         'Assembly 1', 
         1, 
@@ -174,7 +174,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Kosongan Milk', 
         3, 
-        0, 
+        1, 
         'A-2', 
         'Assembly 2', 
         1, 
@@ -198,7 +198,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Kosongan Milk', 
         5, 
-        0, 
+        2, 
         'A-1', 
         'Assembly 1', 
         1, 
@@ -246,7 +246,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Dark Isi Dodol', 
         3, 
-        0, 
+        1, 
         'A-3', 
         'Assembly 3', 
         1, 
@@ -270,7 +270,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Dark Isi Dodol', 
         5, 
-        0, 
+        2, 
         'A-2', 
         'Assembly 2', 
         1, 
@@ -294,7 +294,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Dark Isi Dodol', 
         7, 
-        0, 
+        3, 
         'A-1', 
         'Assembly 1', 
         1, 
@@ -342,7 +342,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat White Isi Dodol', 
         3, 
-        0, 
+        1, 
         'A-3', 
         'Assembly 3', 
         1, 
@@ -366,7 +366,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat White Isi Dodol', 
         5, 
-        0, 
+        2, 
         'A-2', 
         'Assembly 2', 
         1, 
@@ -390,7 +390,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat White Isi Dodol', 
         7, 
-        0, 
+        3, 
         'A-1', 
         'Assembly 1', 
         1, 
@@ -438,7 +438,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Milk Isi Dodol', 
         3, 
-        0, 
+        1, 
         'A-3', 
         'Assembly 3', 
         1, 
@@ -462,7 +462,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Milk Isi Dodol', 
         5, 
-        0, 
+        2, 
         'A-2', 
         'Assembly 2', 
         1, 
@@ -486,7 +486,7 @@ INSERT INTO bom_items (product_group, no, level, kode, bahan_baku, quantity, sat
 (
         'Cokelat Milk Isi Dodol', 
         7, 
-        0, 
+        3, 
         'A-1', 
         'Assembly 1', 
         1, 

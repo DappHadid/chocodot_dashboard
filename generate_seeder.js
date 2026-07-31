@@ -31,15 +31,24 @@ function runSeeder() {
   const bomData = xlsx.utils.sheet_to_json(workbook.Sheets['BOM Rev'], { header: 1 });
   const bomPayload = [];
   let currentBomGroup = '';
+  let lastLevel = 0;
 
   for (const row of bomData) {
     if (row[0] && typeof row[0] === 'string' && row[0].includes('Cokelat') && !row[1] && !row[2]) {
       currentBomGroup = row[0].trim();
+      lastLevel = 0; // reset for new group
     } else if (row[0] && !isNaN(row[0])) {
+      let currentLevel = row[1];
+      if (currentLevel === undefined || currentLevel === null || currentLevel === '') {
+        currentLevel = lastLevel;
+      } else {
+        lastLevel = currentLevel;
+      }
+
       bomPayload.push(`(
         ${escapeString(currentBomGroup)}, 
         ${row[0]}, 
-        ${row[1] || 0}, 
+        ${currentLevel}, 
         ${escapeString(row[2] || '')}, 
         ${escapeString(row[3] || '')}, 
         ${row[4] || 0}, 

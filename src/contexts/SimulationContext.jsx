@@ -21,7 +21,20 @@ export function SimulationProvider({ children }) {
       try {
         const result = await getBomByProduct(dashboardState.activeProduct.group);
         if (mounted) {
-          setBomData(result);
+          // Fix bug from database where merged Excel cells resulted in level 0 for Assembly items
+          let lastLevel = 0;
+          const fixedBomData = result.map((item, idx) => {
+            let currentLevel = item.level;
+            // If level is 0 but it's not the first item (root), it likely should inherit the last level
+            if (currentLevel === 0 && idx > 0) {
+              currentLevel = lastLevel;
+            } else {
+              lastLevel = currentLevel;
+            }
+            return { ...item, level: currentLevel };
+          });
+          
+          setBomData(fixedBomData);
           // Reset demand when product changes, or keep it. Let's reset for now.
           setDemandData(Array(12).fill(0));
         }

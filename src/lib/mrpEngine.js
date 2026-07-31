@@ -12,15 +12,24 @@ export function calculateMRP(bomItems, demandData) {
   
   // Track the most recent item at each level to find parents
   const recentAtLevel = {};
+  const assemblyAtLevel = {};
 
   // Group BOM items
   bomItems.forEach((item) => {
     // Determine parent
     let parentKode = null;
     if (item.level > 0) {
-      parentKode = recentAtLevel[item.level - 1];
+      if (item.level === 1) {
+        parentKode = recentAtLevel[0];
+      } else {
+        parentKode = assemblyAtLevel[item.level - 1] || recentAtLevel[item.level - 1];
+      }
     }
+    
     recentAtLevel[item.level] = item.kode;
+    if (item.bahan_baku.toLowerCase().includes('assembly') || item.kode.toLowerCase().startsWith('a-')) {
+      assemblyAtLevel[item.level] = item.kode;
+    }
 
     if (!components[item.kode]) {
       components[item.kode] = {
@@ -89,8 +98,12 @@ export function calculateMRP(bomItems, demandData) {
       // demandData is an array of 12 values for Month 1-12
       demandData.forEach((qty, idx) => {
         if (qty > 0 && idx < MONTH_START_WEEKS.length) {
-          const weekKey = `w${MONTH_START_WEEKS[idx].toString().padStart(2, '0')}`;
-          mrp.gross_requirement[weekKey] += qty;
+          const startWeek = MONTH_START_WEEKS[idx];
+          const weeklyQty = Number(qty) / 4;
+          for (let w = 0; w < 4; w++) {
+            const weekKey = `w${(startWeek + w).toString().padStart(2, '0')}`;
+            mrp.gross_requirement[weekKey] += weeklyQty;
+          }
         }
       });
     } else {
@@ -101,7 +114,7 @@ export function calculateMRP(bomItems, demandData) {
           const weekKey = `w${i.toString().padStart(2, '0')}`;
           const parentRelease = parentMrp[weekKey];
           if (parentRelease > 0) {
-            mrp.gross_requirement[weekKey] += parentRelease * parentInfo.qty;
+            mrp.gross_requirement[weekKey] += parentRelease * Number(parentInfo.qty);
           }
         }
       });

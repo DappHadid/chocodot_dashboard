@@ -10,8 +10,8 @@ export function Topbar() {
   const getPageTitle = () => {
     switch (location.pathname) {
       case '/': return 'Dashboard Overview';
-      case '/bom': return 'Bill of Materials (BOM) Rev';
-      case '/mrp': return 'MRP Revisi';
+      case '/bom': return 'Bill of Materials (BOM)';
+      case '/mrp': return 'MRP';
       case '/rekap': return 'Rekapitulasi Order';
       default: return 'Chocodot MRP';
     }
