@@ -8,6 +8,7 @@ const initialState = {
   // You could also add month filters here here here here hereeee
   //streakk boss
   //streeakkkdskdks bossszz
+  //streak nichh
 };
 
 function dashboardReducer(state, action) {
