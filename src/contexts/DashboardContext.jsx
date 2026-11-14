@@ -7,6 +7,7 @@ const initialState = {
   activeProduct: PRODUCTS[0],
   // You could also add month filters here here here here hereeee
   //streakk boss
+  //streeakkkdskdks bossszz
 };
 
 function dashboardReducer(state, action) {
