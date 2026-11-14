@@ -11,6 +11,7 @@ const initialState = {
   //streak nichh
   //streakk lagi
   // streak terusss
+  //streak achh
 };
 
 function dashboardReducer(state, action) {
