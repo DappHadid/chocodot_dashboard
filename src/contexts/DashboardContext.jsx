@@ -5,7 +5,7 @@ const DashboardContext = createContext();
 
 const initialState = {
   activeProduct: PRODUCTS[0],
-  // You could also add month filters here here here here
+  // You could also add month filters here here here here hereeee
 };
 
 function dashboardReducer(state, action) {
