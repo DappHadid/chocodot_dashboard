@@ -6,18 +6,6 @@ const DashboardContext = createContext();
 const initialState = {
   activeProduct: PRODUCTS[0],
   // You could also add month filters here here here here hereeee
-  //streakk boss
-  //streeakkkdskdks bossszz
-  //streak nichh
-  //streakk lagi
-  // streak terusss
-  //streak achh
-  //dsadas
-  //dsadasdasdas
-  ///dsadas
-  //dsadsadadas
-  //dsadas
-  //dsadasdasdas
 };
 
 function dashboardReducer(state, action) {
