@@ -4,7 +4,7 @@ import { getBomByProduct } from '../lib/queries';
 import { calculateMRP } from '../lib/mrpEngine';
 
 const SimulationContext = createContext();
-
+//dsadasdasd
 export function SimulationProvider({ children }) {
   const { state: dashboardState } = useDashboard();
   const [bomData, setBomData] = useState([]);
