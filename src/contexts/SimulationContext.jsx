@@ -16,6 +16,8 @@ export function SimulationProvider({ children }) {
   //dsadaddadas
   //dsadasddadas
   //dsadasdasdas
+
+  //dsadads
   useEffect(() => {
     let mounted = true;
     const fetchInitialBom = async () => {
