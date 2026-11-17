@@ -15,6 +15,7 @@ export function SimulationProvider({ children }) {
   // Fetch initial BOM when product changes
   //dsadaddadas
   //dsadasddadas
+  //dsadasdasdas
   useEffect(() => {
     let mounted = true;
     const fetchInitialBom = async () => {
