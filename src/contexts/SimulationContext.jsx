@@ -12,10 +12,6 @@ export function SimulationProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch initial BOM when product changes
-  //dsadadas
-  //dsadadssa
-  //dsadadsadasdsa
   useEffect(() => {
     let mounted = true;
     const fetchInitialBom = async () => {
