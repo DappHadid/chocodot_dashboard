@@ -20,7 +20,7 @@ export function SimulationProvider({ children }) {
       try {
         const result = await getBomByProduct(dashboardState.activeProduct.group);
         if (mounted) {
-
+//dsadasdasdas
           // Fix bug from database where merged Excel cells resulted in level 0 for Assembly items
           let lastLevel = 0;
           const fixedBomData = result.map((item, idx) => {
